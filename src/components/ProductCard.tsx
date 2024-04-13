@@ -2,9 +2,13 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import { Button, CardActions } from "@mui/material";
+import { useDispatch } from "react-redux";
+
+import { addToCart } from "../state/cart/cartSlice";
 
 type ProductCardProps = {
+  id: string;
   image: string;
   title: string;
   price: number;
@@ -12,22 +16,28 @@ type ProductCardProps = {
 };
 
 export const ProductCard = ({
+  id,
   image,
   title,
   price,
   description,
 }: ProductCardProps) => {
+  const dispatch = useDispatch();
   return (
     <Card sx={{ maxWidth: 345 }}>
-      {/* <CardActionArea> */}
       <CardMedia
         component="img"
         height="350"
         image={image}
         alt="green iguana"
       />
-      <CardContent sx={{ backgroundColor: "secondary.light" }}>
-        <Typography gutterBottom variant="h5" component="div">
+      <CardContent sx={{ backgroundColor: "secondary.main" }}>
+        <Typography
+          gutterBottom
+          variant="h6"
+          fontWeight={"bold"}
+          component="div"
+        >
           {title}
         </Typography>
         <Typography
@@ -36,15 +46,20 @@ export const ProductCard = ({
           fontWeight={"bold"}
           component="div"
         >
-          {price}
+          {price} $
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body1" color={"secondary.light"}>
           {description}
         </Typography>
       </CardContent>
-      {/* </CardActionArea> */}
-      <CardActions sx={{ backgroundColor: "secondary.main" }}>
-        <Button size="small">Add To Cart</Button>
+
+      <CardActions sx={{ backgroundColor: "secondary.light" }}>
+        <Button
+          onClick={() => dispatch(addToCart({ id, title, price }))}
+          size="small"
+        >
+          Add To Cart
+        </Button>
       </CardActions>
     </Card>
   );

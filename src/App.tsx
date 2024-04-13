@@ -10,10 +10,11 @@ function App() {
       <Container maxWidth="lg" sx={{ marginTop: "2rem" }}>
         <Typography
           variant="h5"
-          color={"whitesmoke"}
+          color={"secondary"}
+          fontWeight={"bold"}
           sx={{ marginLeft: "1rem" }}
         >
-          EVERYTHING YOU NEED
+          EVERYTHING YOU NEED!
         </Typography>
         <ProductsSection>
           {DUMMY_PRODUCTS.map((product) => {

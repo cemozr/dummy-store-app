@@ -26,6 +26,8 @@ export const Header = () => {
             <Typography
               variant="h5"
               sx={{ display: { xs: "none", sm: "block" } }}
+              fontWeight={"bold"}
+              color={"secondary"}
             >
               MY SHOP
             </Typography>
