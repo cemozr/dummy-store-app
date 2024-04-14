@@ -65,11 +65,19 @@ export const ShoppingCart = () => {
                         sm={8}
                         xs={12}
                       >
-                        <Typography variant="body1" fontWeight={"bold"}>
+                        <Typography
+                          variant="body1"
+                          fontWeight={"bold"}
+                          sx={{ minWidth: { md: "17rem", sm: "17rem" } }}
+                        >
                           {cartItem.title}
                         </Typography>
-                        <Typography variant="body1">
-                          {cartItem.price} $
+                        <Typography
+                          variant="body1"
+                          minWidth={"4rem"}
+                          sx={{ textAlign: { sm: "start", md: "start" } }}
+                        >
+                          ${cartItem.price}
                         </Typography>
                         <Typography variant="body1">
                           {cartItem.quantity}
@@ -133,7 +141,7 @@ export const ShoppingCart = () => {
           </List>
           <Box>
             <Typography variant="h6" textAlign={"end"} sx={{ marginRight: 2 }}>
-              Total Price: {fixedTotalPrice} $
+              Total Price: ${fixedTotalPrice}
             </Typography>
           </Box>
         </Box>

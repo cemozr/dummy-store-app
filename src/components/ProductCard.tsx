@@ -46,7 +46,7 @@ export const ProductCard = ({
           fontWeight={"bold"}
           component="div"
         >
-          {price} $
+          ${price}
         </Typography>
         <Typography variant="body1" color={"secondary.light"}>
           {description}
